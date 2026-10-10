@@ -7,7 +7,7 @@ on:
     inputs:
       mode:
         description: "watch | summary | test"
-        default: "test"
+        default: "watch"
 
 permissions:
   contents: read
