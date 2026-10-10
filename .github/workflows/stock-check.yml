@@ -2,7 +2,7 @@ name: iPhone stock check
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # every 30 minutes (UTC)
+    - cron: "*/30 * * * *"   # every 30 minutes (UTC)
   workflow_dispatch:
     inputs:
       mode:
@@ -30,7 +30,12 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           NTFY_SERVER: ${{ vars.NTFY_SERVER }}
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
-        run: python3 check_stock.py "${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'watch' }}"
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python3 check_stock.py "${{ inputs.mode }}"
+          else
+            python3 check_stock.py watch
+          fi
 
       - uses: actions/cache/save@v4
         if: always()
