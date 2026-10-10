@@ -1,6 +1,6 @@
 # iPhone 18 Pro stock → ntfy
 
-Checks Apple Store in-store pickup for the iPhone 18 Pro Max (and optionally Pro) at stores within 50 miles of ZIP 30096. It runs on GitHub Actions once an hour and pushes alerts to the ntfy app.
+Checks Apple Store in-store pickup for the iPhone 18 Pro Max (and optionally Pro) at stores within 50 miles of postal code. It runs on GitHub Actions once an hour and pushes alerts to the ntfy app.
 
 Each hourly run sends:
 
