@@ -2,7 +2,7 @@ name: iPhone stock check
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes (UTC)
+    - cron: "*/10 * * * *"   # every 30 minutes (UTC)
   workflow_dispatch:
     inputs:
       mode:
